@@ -1,0 +1,182 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  animation: fadeIn 200ms ease;
+}
+
+.panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 85vh;
+  background: var(--color-bg);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  animation: slideUp 300ms var(--ease-spring);
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+.handle {
+  width: 40px;
+  height: 4px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  margin: var(--space-3) auto var(--space-1);
+}
+
+.panelHeader {
+  padding: var(--space-3) var(--space-5) var(--space-2);
+  text-align: center;
+}
+
+.panelTitle {
+  font-size: var(--text-lg);
+  font-weight: 800;
+}
+
+.panelSub {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+/* Category tabs */
+.categoryTabs {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4) var(--space-3);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.categoryTab {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  white-space: nowrap;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  transition: all 150ms;
+}
+
+.categoryTabActive {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Term list */
+.termList {
+  padding: 0 var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.termItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 150ms;
+}
+
+.termItem:hover {
+  border-color: var(--color-teal-light);
+}
+
+.termTop {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.termWord {
+  font-size: var(--text-lg);
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.termReading {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.termArrow {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+.termMeaning {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-sub);
+  line-height: var(--leading-normal);
+}
+
+.termExample {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid;
+  animation: fadeIn 200ms ease;
+}
+
+.exampleLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+.exampleText {
+  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: var(--leading-normal);
+  font-weight: 600;
+}
+
+.closeBtn {
+  display: block;
+  width: calc(100% - var(--space-8));
+  margin: var(--space-4) auto var(--space-4);
+  padding: var(--space-3);
+  background: var(--color-teal);
+  color: white;
+  font-weight: 800;
+  font-size: var(--text-base);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 0 var(--color-teal-shadow);
+  transition: transform 80ms, box-shadow 80ms;
+}
+
+.closeBtn:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
